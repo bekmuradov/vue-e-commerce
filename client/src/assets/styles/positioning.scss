@@ -1,0 +1,27 @@
+.absolute-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+
+.float-right {
+  float: right;
+}
+
+.fixed {
+  position: fixed;
+  width: 100%;
+  &.-top {
+    left: 0;
+    top: 0;
+  }
+  &.-bottom {
+    left: 0;
+    bottom: 0;
+  }
+}
+
+.fullscreen {
+  height: 100vh;
+}

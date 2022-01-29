@@ -1,0 +1,104 @@
+@import 'app.variables.scss';
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 38px;
+  padding: 0 40px;
+  border: none;
+  border-radius: 13px;
+  text-align: center;
+  font-weight: 600;
+  white-space: nowrap;
+  transition: all 0.2s linear;
+  color: white;
+  background-color: $accent;
+  cursor: pointer;
+
+  &:hover {
+    background-color: lighten($accent, 5%);
+    -webkit-transform: scale(1.02);
+    transform: scale(1.02);
+    box-shadow: 0 7px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+
+  &:active {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    box-shadow: none;
+  }
+
+  &:focus {
+    outline: 0;
+  }
+
+  &:disabled {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    box-shadow: none;
+    cursor: not-allowed;
+  }
+}
+
+.button + .button {
+  margin-left: 1em;
+}
+.button.-fill-gradient {
+  background: linear-gradient(to right, #16c0b0, #84cf6a);
+  color: $light-shade;
+}
+.button.-fill-gray {
+  background: rgba(0, 0, 0, 0.5);
+  color: $light-shade;
+}
+.button.-danger {
+  background: $negative;
+  color: white;
+  &:hover {
+    background-color: lighten($negative, 5%) !important;
+  }
+}
+.button.-size-sm {
+  height: 23px;
+  padding: 0 20px;
+  &:hover {
+    background-color: lighten($primary, 5%);
+  }
+}
+
+.button.-size-md {
+  height: 32px;
+  padding: 0 20px;
+  &:hover {
+    background-color: lighten($accent, 5%);
+  }
+}
+
+.button.outline {
+  border-radius: none;
+  border: 1px solid $secondary;
+  color: $secondary;
+  background-color: transparent;
+  &:hover {
+    background-color: transparent;
+  }
+}
+
+.badge {
+  display: inline-flex;
+  height: 26px;
+  width: auto;
+  background: transparent;
+  border-radius: 13px;
+  font-size: 13px;
+  font-weight: 400;
+  color: gray;
+  & > span {
+    color: $accent;
+  }
+}
+.badge.-fill-gradient {
+  background: linear-gradient(to right, #16c0b0, #84cf6a);
+  color: #fff;
+}

@@ -1,0 +1,77 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  display: flex;
+  align-items: center;
+  font-family: "Montserrat", sans-serif;
+}
+h1 {
+  font-size: 50px;
+  font-weight: 700;
+}
+h2 {
+  font-size: 38px;
+  font-weight: 700;
+}
+h3 {
+  font-size: 28px;
+  font-weight: 700;
+}
+h4 {
+  font-size: 21px;
+  font-weight: 700;
+}
+h5 {
+  font-size: 16px;
+  font-weight: 700;
+}
+h6 {
+  font-size: 15px;
+  font-weight: 700;
+}
+b,
+strong {
+  font-weight: bolder;
+}
+small {
+  font-size: 80%;
+}
+.eyebrow {
+  font-size: 20px;
+}
+.text-primary {
+  color: $primary;
+}
+.text-positive {
+  color: $positive;
+}
+.text-base {
+  color: #000;
+}
+.text-error {
+  color: tomato;
+}
+.text-gray {
+  color: rgba(0, 0, 0, 0.5);
+}
+.text-center {
+  text-align: center;
+}
+.text-weight-bold {
+  font-weight: 600;
+}
+.text-size-21 {
+  font-size: 21px;
+}
+.text-size-18 {
+  font-size: 18px;
+}
+.text-size-16 {
+  font-size: 16px;
+}
+.text-size-12 {
+  font-size: 12px;
+}

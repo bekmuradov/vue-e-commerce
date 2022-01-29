@@ -1,0 +1,14 @@
+.flex,
+.row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &.wrap {
+    flex-wrap: wrap;
+  }
+}
+
+.column-25 {
+  flex: 25%;
+  max-width: 25%;
+}

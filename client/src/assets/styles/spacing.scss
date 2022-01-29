@@ -1,0 +1,121 @@
+@import 'app.variables.scss';
+
+.px {
+  &-none {
+    padding: 0;
+  }
+  &-sm {
+    padding: 0 $sm;
+  }
+  &-md {
+    padding: 0 $md;
+  }
+  &-lg {
+    padding: 0 $lg;
+  }
+}
+
+.py {
+  &-none {
+    padding: 0;
+  }
+  &-sm {
+    padding: $sm 0;
+  }
+  &-md {
+    padding: $md 0;
+  }
+  &-lg {
+    padding: $lg 0;
+  }
+}
+
+.pb {
+  &-none {
+    padding-bottom: 0 !important;
+  }
+  &-sm {
+    padding-bottom: $sm;
+  }
+  &-md {
+    padding-bottom: $md;
+  }
+  &-lg {
+    padding-bottom: $lg;
+  }
+}
+
+.pt {
+  &-none {
+    padding-top: 0 !important;
+  }
+  &-sm {
+    padding-top: $sm;
+  }
+  &-md {
+    padding-top: $md;
+  }
+  &-lg {
+    padding-top: $lg;
+  }
+}
+
+.mx {
+  &-none {
+    margin: 0;
+  }
+  &-sm {
+    margin: 0 $sm;
+  }
+  &-md {
+    margin: 0 $md;
+  }
+  &-lg {
+    margin: 0 $lg;
+  }
+}
+
+.my {
+  &-none {
+    margin: 0;
+  }
+  &-sm {
+    margin: $sm 0;
+  }
+  &-md {
+    margin: $md 0;
+  }
+  &-lg {
+    margin: $lg 0;
+  }
+}
+
+.mb {
+  &-none {
+    margin-bottom: 0 !important;
+  }
+  &-sm {
+    margin-bottom: $sm;
+  }
+  &-md {
+    margin-bottom: $md;
+  }
+  &-lg {
+    margin-bottom: $lg;
+  }
+}
+
+.mt {
+  &-none {
+    margin-top: 0 !important;
+  }
+  &-sm {
+    margin-top: $sm;
+  }
+  &-md {
+    margin-top: $md;
+  }
+  &-lg {
+    margin-top: $lg;
+  }
+}

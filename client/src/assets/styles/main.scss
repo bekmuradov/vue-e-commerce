@@ -1,0 +1,134 @@
+@import "@/assets/styles/app.variables.scss";
+@import "@/assets/styles/flexbox.scss";
+@import "@/assets/styles/button.badge.scss";
+@import "@/assets/styles/positioning.scss";
+@import "@/assets/styles/spacing.scss";
+@import "@/assets/styles/typography.scss";
+@import "@/assets/styles/base.elements.scss";
+@import "@/assets/styles/others.scss";
+
+html {
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+body {
+  margin: 0;
+  font-family: "Open Sans", sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #000;
+  min-width: 230px;
+  margin: 0 auto;
+  font-weight: 300;
+  box-sizing: border-box;
+}
+
+.Navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  background-color: darken($light-shade, 5%);
+  color: $primary;
+  &__sort-products {
+    width: 200px;
+  }
+  &__menu {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    &__actions > a {
+      &.router-link-exact-active {
+        color: lighten($positive, 5%);
+      }
+    }
+  }
+}
+
+.Product-card {
+  border-radius: 15px;
+  max-width: 150px;
+  padding: 15px;
+  margin: 10px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+
+  &:hover {
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+  }
+
+  &__image {
+    width: 150px;
+    height: auto;
+    border-radius: 13px;
+    background-color: rgba(255, 165, 0, 0.1);
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.1);
+  }
+  &__content {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    margin-top: 5px;
+    & > div {
+      margin: 5px
+    }
+    &__price {
+      font-weight: 600
+    }
+    &__material {
+      font-size: 0.8rem
+    }
+  }
+}
+
+.Cart-list {
+  &__content {
+    margin-bottom: 100px;
+  }
+  &__actions {
+    padding: 5px 0;
+    &__section {
+      width: 100%;
+    }
+  }
+}
+
+.Cart-item {
+  display: flex;
+  justify-content: space-around;
+  border-radius: 15px;
+  padding: 15px;
+  margin: 5px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+  &__image {
+    border-radius: 13px;
+    background-color: rgba(255, 165, 0, 0.1);
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.1);
+  }
+  &__content {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    margin-top: 5px;
+    & > div {
+      margin: 5px
+    }
+    &__price {
+      font-weight: 600
+    }
+    &__actions {
+      display: flex
+    }
+  }
+}
+
+@media only screen and (max-width: $mobile) {
+  .Product-card {
+    max-width: 100%;
+  }
+  .Navbar {
+    display: block;
+    &__brand {
+      display: none;
+    }
+  }
+}
