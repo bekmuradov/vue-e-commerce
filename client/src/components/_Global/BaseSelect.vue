@@ -26,18 +26,19 @@
       {{ option }}
     </option>
   </select>
-  <base-error-message
+  <BaseErrorMessage
     v-if="error"
     :id="`${uuid}-error`"
   >
     {{ error }}
-  </base-error-message>
+  </BaseErrorMessage>
 </template>
 
 <script>
 import UniqueID from '@/features/UniqueID'
 
 export default {
+  name: 'BaseSelect',
   props: {
     options: {
       type: Array,
@@ -45,10 +46,12 @@ export default {
     },
     label: {
       type: String,
+      required: false,
       default: ''
     },
     error: {
       type: String,
+      required: false,
       default: ''
     },
     modelValue: {
