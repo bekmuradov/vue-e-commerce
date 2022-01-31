@@ -1,6 +1,7 @@
 import LocalStorageService from '@/services/localStorageService'
 
 const getIndex = (cartItems, item) => cartItems.findIndex(cartItem => cartItem.id === item.id)
+
 const increaseQty = (item) => {
   if (isItemQtyLessThanStock(item)) {
     item.quantity += 1
@@ -72,6 +73,6 @@ export const removeCartItem = ({ state, commit }, item) => {
   commit('UPDATE_CART_ITEMS', cartItems)
 }
 export const emptyCart = ({ commit }) => {
-  LocalStorageService.updateLocalCart([])
+  LocalStorageService.clearLocalCart()
   commit('UPDATE_CART_ITEMS', [])
 }

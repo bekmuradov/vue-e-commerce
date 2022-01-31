@@ -1,7 +1,7 @@
 <template>
     <nav class="Navbar" role="navigation" aria-label="main navigation">
       <div class="Navbar__sort-products">
-        <base-select
+        <BaseSelect
           v-model="category"
           :options="productCategories"
           class="-size-small mb-none"

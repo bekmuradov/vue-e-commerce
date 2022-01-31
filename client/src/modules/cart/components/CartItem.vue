@@ -9,8 +9,8 @@
         {{ $filters.currencyUSD(cartItem.price) }} X {{ quantity }}
       </div>
       <div class="Cart-item__content__actions">
-        <base-button type="button" class="outline -size-sm" @click="decreaseQty" :disabled="quantity === 0">-</base-button>
-        <base-button type="button" class="outline -size-sm" @click="increaseQty" :disabled="stock === quantity">+</base-button>
+        <BaseButton type="button" class="outline -size-sm" @click="decreaseQty" :disabled="quantity === 0">-</BaseButton>
+        <BaseButton type="button" class="outline -size-sm" @click="increaseQty" :disabled="stock === quantity">+</BaseButton>
       </div>
     </div>
   </div>
@@ -21,7 +21,7 @@ import { useStore } from 'vuex'
 import { ref, reactive } from 'vue'
 
 export default {
-  name: 'CartListItem',
+  name: 'CartItem',
   props: {
     id: Number,
     image: String,
@@ -39,16 +39,12 @@ export default {
     const decreaseQty = () => $store.dispatch('cart/decreaseItemQty', cartItem)
     const increaseQty = () => $store.dispatch('cart/increaseItemQty', cartItem)
 
-    const handleOnChange = (e) => {
-
-    }
     return {
       cartItem,
       decreaseQty,
       increaseQty,
       selectedItem: ref(false),
-      itemQty: ref(cartItem.quantity),
-      handleOnChange
+      itemQty: ref(cartItem.quantity)
     }
   }
 }

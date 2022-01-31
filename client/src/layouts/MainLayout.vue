@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <header>
-      <navbar />
+      <NavBar />
     </header>
 
     <main>
@@ -11,22 +11,21 @@
 </template>
 
 <script>
-import { onMounted, onBeforeMount } from 'vue'
 import { useStore } from 'vuex'
 
 export default {
   name: 'MainLayout',
   components: {
-    navbar: require('@/components/core/Navbar').default
+    NavBar: require('@/components/core/Navbar').default
   },
   setup () {
     const $store = useStore()
 
+    // These functions will be executed on components created life cycle
     const fetchProducts = () => $store.dispatch('product/fetchProducts')
     const initLocalCart = () => $store.dispatch('cart/initLocalCart')
-
-    onMounted(fetchProducts)
-    onBeforeMount(initLocalCart)
+    fetchProducts()
+    initLocalCart()
 
     return {}
   }

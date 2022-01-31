@@ -1,7 +1,11 @@
 export default {
   setLocalCart () {
-    if (!localStorage.getItem('cart')) {
-      localStorage.setItem('cart', JSON.stringify([]))
+    if (typeof (Storage) !== 'undefined') {
+      if (!localStorage.getItem('cart')) {
+        localStorage.setItem('cart', JSON.stringify([]))
+      }
+    } else {
+      throw new Error('Storage is not supported by browser!')
     }
   },
   getLocalCart () {
@@ -9,5 +13,8 @@ export default {
   },
   updateLocalCart (items) {
     localStorage.setItem('cart', JSON.stringify(items))
+  },
+  clearLocalCart () {
+    localStorage.clear()
   }
 }

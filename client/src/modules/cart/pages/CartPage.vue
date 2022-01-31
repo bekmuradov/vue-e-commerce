@@ -5,11 +5,11 @@
     </div>
     <div v-else>
       <div v-if="!cartItems.length" class="">
-        <nothing-here label="Oops, Your Shopping Cart is Empty" />
+        <NothingHere label="Oops, Your Shopping Cart is Empty" />
       </div>
       <div v-else class="Cart-list">
         <div class="Cart-list__content container-sm">
-          <cart-list-item v-for="item in cartItems" :key="item.id" v-bind="item"/>
+          <CartItem v-for="item in cartItems" :key="item.id" v-bind="item"/>
         </div>
         <div class="Cart-list__actions fixed -bottom">
           <div class="text-center">
@@ -17,12 +17,12 @@
               Total Quantity:
               <span class="text-weight-bold">{{ cartQuantity }}</span>
             </div>
-            <base-button class="-size-md -danger" :disabled="!cartItems.length" @click="emptyCart" type="button">
+            <BaseButton class="-size-md -danger" :disabled="!cartItems.length" @click="emptyCart" type="button">
               Remove All
-            </base-button>
-            <base-button class="-size-md" :disabled="!cartItems.length" @click="handleCheckout" type="button">
+            </BaseButton>
+            <BaseButton class="-size-md" :disabled="!cartItems.length" @click="handleCheckout" type="button">
               Checkout (<span class="text-weight-bold">{{ $filters.currencyUSD(cartTotalPrice) }}</span>)
-            </base-button>
+            </BaseButton>
           </div>
         </div>
       </div>
@@ -35,7 +35,7 @@ import { computed, ref } from 'vue'
 import { useRouter } from 'vue-router'
 
 export default {
-  name: 'CartList',
+  name: 'CartPage',
   setup () {
     const $store = useStore()
     const $router = useRouter()
@@ -55,7 +55,7 @@ export default {
         emptyCart()
         alert('Payment Successfull')
         $router.push({
-          name: 'Products'
+          name: 'ProductModule'
         })
         paymentProcessing.value = false
       }, 3000)
@@ -71,8 +71,8 @@ export default {
     }
   },
   components: {
-    'cart-list-item': require('@/components/cart/CartListItem.vue').default,
-    'nothing-here': require('@/components/core/NothingHere.vue').default
+    CartItem: require('@/modules/cart/components/CartItem.vue').default,
+    NothingHere: require('@/components/core/NothingHere.vue').default
   }
 }
 </script>

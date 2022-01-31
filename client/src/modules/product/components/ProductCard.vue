@@ -9,7 +9,7 @@
       <div class="Product-card__content__material badge">Type: &nbsp;<span>{{ material }}</span></div>
     </div>
     <div class="Product-card__actions">
-      <base-button @click="addToCart" type="button">Add to Cart</base-button>
+      <BaseButton @click="addToCart" type="button">Add to Cart</BaseButton>
     </div>
   </div>
 </template>
