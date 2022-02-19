@@ -2,7 +2,7 @@
 
 This is an e-commerce site for you to buy robots. The homepage should display a list of robots for people to browse, and a cart that show a list of selected robots.
 
-## Example of e-commerce site using Vue 3, Vuex, Vue-Router and Axios.
+> ## Example of e-commerce site using [Vue3](https://v3.vuejs.org/), Vuex, Vue-Router and Axios.
 
 ### Features
 - [X] products should display in a grid
@@ -15,11 +15,40 @@ This is an e-commerce site for you to buy robots. The homepage should display a 
 - [X] total amount should be the total number of selected robots
 - [X] total price should be in USD format, $5,300.00
 
-### Robots API
-#### How do I start the app?
-    * navigate to server forder and run the following
-    * to install dependencies run yarn install or npm install
-    * to run the project  yarn start or npm run start
+
+# What works?
+
+- [x] [Composition API](https://composition-api.vuejs.org/)
+- [x] [SFC \<script setup> sugar](https://v3.vuejs.org/api/sfc-script-setup.html)
+- [x] [Vue router](https://next.router.vuejs.org/)
+- [x] [Vuex 4 State management](https://vuex.vuejs.org/)
+- [x] Vue Modular Architecture
+- [x] Linter [ESLint](https://eslint.vuejs.org/)
+- [x] Unit test ([Vue Testing Library](https://testing-library.com/docs/vue-testing-library/intro))
+- [x] [Yarn workspaces] (https://classic.yarnpkg.com/lang/en/docs/workspaces/)
+- [x] [Monorepo & CI/CD with Turborepo] (https://turborepo.org/) and [Vercel] (https://vercel.com/?utm_source=turborepo.org&utm_medium=referral&utm_campaign=docs-link)
+
+# What needs to be done?
+
+- [] Authentication
+
+# Getting started
+
+```shell script
+yarn install
+
+# Development (will start both the backend and frontend in parallel)
+yarn dev
+
+# Build dist
+yarn build
+
+# Run unit tests for the frontend
+yarn test:ui
+
+```
+
+## Robots API
     * the port for backend is 3000
     * The basic query looks like this: /api/robots
     * The response format is JSON
@@ -33,47 +62,64 @@ This is an e-commerce site for you to buy robots. The homepage should display a 
       material
     }
     ```
-    * then navigate to client folder and run the following
-    * to install dependencies run yarn install or npm install
-    * to run the project  yarn serve or npm run serve
-    * the port for the frontend is 8080
 
-### Example application structure
-```bash
-assets/
+### Application structure
+```shell script
+client/src/
+  L assets/
     L styles/                   styles
 
-components/
-    L ~Global/                  basic vue reusable components such as buttons, input, checkbox
+  L components/
+    L _Global/                  basic vue reusable components such as buttons, input, checkbox with unit tests
+    L core/                     shared components such as Navbar, NothingHere
+
+  L config/
+    L index.js                  env variables
+
+  L features/
+    L UniqueID.js               simple function to generate unique ids
+
+  L layouts/
+    L MainLayout.vue            so Navbar renders just once
+
+  L modules/                    modular architecture
+    L account/
+      L components/
+      L pages/
+      L store/
+      AccountModule.vue
+      routes.js
+
     L cart/
-        L CartList.vue
-        L CartListItem.vue
-    L core/                     shared components such as Navbar
+      L components/
+      L pages/
+      L store/
+      CartModule.vue
+      routes.js
+
     L product/
-        L ProductCard.vue
-        L ProductList.vue
+      L components/
+      L pages/
+      L store/
+      ProductModule.vue
+      routes.js
 
-features/
-    L UniqueID.js               simple function to generate ids
+  L router/                     all routes from modules are nested within MainLayout
 
-layouts/
-    L MainLayout.vue
-
-router/                         all routes are nested within MainLayout
-
-services/
+  L services/
     L apiConfig.js              instantiating axios api with baseURL
     L Api.js                    api method to get products from server
     L localStorageService.js    shopping cart uses in build memory (localStorage)
 
-store/                          vuex store with 2 modules
-    L cart/
-    L product
+  L store/                       all stores from modules imported here
     L index.js
 
-views/
+  L views/
     L Error404.vue
 
-App.vue
-main.js                           in this file I am registering components and filters globally
+  L App.vue
+  L main.js                      global components & filters are registered here
+
+server/                          basic express server using faker and [https://robohash.org](https://robohash.org) API
+  L index.js                     creates 100 random robots
 ```
