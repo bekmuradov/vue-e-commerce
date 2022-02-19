@@ -1,6 +1,9 @@
 name: Push stack to heroku
 
-on: [push]
+on:
+  push:
+    branches:
+      - main
 
 jobs:
   build:
@@ -13,5 +16,7 @@ jobs:
         heroku_api_key: ${{secrets.HEROKU_API_KEY}}
         heroku_app_name: "robots-server"
         heroku_email: ${{secrets.HEROKU_API_KEY}}
+        appdir: "server"
+        buildpack: https://github.com/lstoll/heroku-buildpack-monorepo -i 1
       env:
         APP_BASE: "server/"
