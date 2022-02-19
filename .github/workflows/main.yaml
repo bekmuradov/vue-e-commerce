@@ -3,7 +3,7 @@ name: Push stack to heroku
 on:
   push:
     branches:
-      - main
+      - master
 
 jobs:
   build:
