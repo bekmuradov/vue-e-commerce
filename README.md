@@ -1,4 +1,4 @@
-# !Robot-Market
+# Robot-Market
 
 This is an e-commerce site for you to buy robots. The homepage should display a list of robots for people to browse, and a cart that show a list of selected robots.
 
@@ -47,10 +47,9 @@ yarn test:ui
 
 ```
 
-## Robots API
-    * uses [https://robohash.org](https://robohash.org) API
+## Robots API Server uses [https://robohash.org](https://robohash.org) API
     * the port for backend is 3000
-    * The basic query looks like this: /api/robots
+    * It has one endpoint: /api/robots
     * The response format is JSON
     ```
     {
