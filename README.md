@@ -28,8 +28,8 @@ This is an e-commerce site for you to buy robots. The homepage should display a 
 - [x] Vue Modular Architecture
 - [x] Linter [ESLint](https://eslint.vuejs.org/)
 - [x] Unit test ([Vue Testing Library](https://testing-library.com/docs/vue-testing-library/intro))
-- [x] [Yarn workspaces] (https://classic.yarnpkg.com/lang/en/docs/workspaces/)
-- [x] [Monorepo & CI/CD with Turborepo] (https://turborepo.org/) and [Vercel] (https://vercel.com/?utm_source=turborepo.org&utm_medium=referral&utm_campaign=docs-link)
+- [x] [Yarn workspaces](https://classic.yarnpkg.com/lang/en/docs/workspaces/)
+- [x] [Monorepo & CI/CD with Turborepo](https://turborepo.org/) and [Vercel](https://vercel.com/?utm_source=turborepo.org&utm_medium=referral&utm_campaign=docs-link)
 
 # Getting started
 
