@@ -5,29 +5,21 @@
     </header>
 
     <main>
-      <router-view></router-view>
+      <router-view />
     </main>
   </div>
 </template>
 
-<script>
+<script setup>
 import { useStore } from 'vuex'
+import NavBar from '@/components/core/Navbar'
 
-export default {
-  name: 'MainLayout',
-  components: {
-    NavBar: require('@/components/core/Navbar').default
-  },
-  setup () {
-    const $store = useStore()
+const $store = useStore()
 
-    // These functions will be executed on components created life cycle
-    const fetchProducts = () => $store.dispatch('product/fetchProducts')
-    const initLocalCart = () => $store.dispatch('cart/initLocalCart')
-    fetchProducts()
-    initLocalCart()
+// These functions will be executed on components created life cycle
+const fetchProducts = () => $store.dispatch('product/fetchProducts')
+const initLocalCart = () => $store.dispatch('cart/initLocalCart')
+fetchProducts()
+initLocalCart()
 
-    return {}
-  }
-}
 </script>

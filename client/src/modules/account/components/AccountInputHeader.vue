@@ -12,7 +12,14 @@
 
 <script setup>
 defineProps({
-  label: String,
-  subLabel: String
+  label: {
+    type: String,
+    required: true
+  },
+  subLabel: {
+    type: String,
+    required: false,
+    default: ''
+  }
 })
 </script>

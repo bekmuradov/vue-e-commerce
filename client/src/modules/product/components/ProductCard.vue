@@ -4,12 +4,18 @@
       <img
         :src="image"
         :alt="name"
-      />
+      >
     </div>
     <div class="Product-card__content px-sm">
-      <div class="Product-card__content__title truncate">{{ name }}</div>
-      <div class="Product-card__content__price">{{ $filters.currencyUSD(price) }}</div>
-      <div class="Product-card__content__material badge">Type: &nbsp;<span>{{ material }}</span></div>
+      <div class="Product-card__content__title truncate">
+        {{ name }}
+      </div>
+      <div class="Product-card__content__price">
+        {{ $filters.currencyUSD(price) }}
+      </div>
+      <div class="Product-card__content__material badge">
+        Type: &nbsp;<span>{{ material }}</span>
+      </div>
     </div>
     <div class="Product-card__actions">
       <BaseButton

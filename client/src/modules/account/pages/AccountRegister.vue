@@ -3,15 +3,15 @@
     <BaseInput
       label="Email"
       type="email"
-      :modelValue="email"
-      @change="handleChange"
+      :model-value="email"
       :error="emailError"
+      @change="handleChange"
     />
 
     <BaseInput
+      v-model="password"
       label="Password"
       type="password"
-      v-model="password"
       :error="passwordError"
     />
 
@@ -19,7 +19,7 @@
       type="submit"
       class="-fill-gradient"
     >
-    Submit
+      Submit
     </BaseButton>
   </form>
 </template>

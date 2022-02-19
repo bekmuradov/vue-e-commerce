@@ -1,16 +1,35 @@
 <template>
   <div class="Cart-item">
     <div class="Cart-item__image">
-      <img :src="cartItem.image" :alt="cartItem.name" />
+      <img
+        :src="cartItem.image"
+        :alt="cartItem.name"
+      >
     </div>
     <div class="Cart-item__content">
-      <div class="Cart-item__content__title truncate">{{ cartItem.name }}</div>
+      <div class="Cart-item__content__title truncate">
+        {{ cartItem.name }}
+      </div>
       <div class="Cart-item__content__price">
         {{ $filters.currencyUSD(cartItem.price) }} X {{ quantity }}
       </div>
       <div class="Cart-item__content__actions">
-        <BaseButton type="button" class="outline -size-sm" @click="decreaseQty" :disabled="quantity === 0">-</BaseButton>
-        <BaseButton type="button" class="outline -size-sm" @click="increaseQty" :disabled="stock === quantity">+</BaseButton>
+        <BaseButton
+          type="button"
+          class="outline -size-sm"
+          :disabled="quantity === 0"
+          @click="decreaseQty"
+        >
+          -
+        </BaseButton>
+        <BaseButton
+          type="button"
+          class="outline -size-sm"
+          :disabled="stock === quantity"
+          @click="increaseQty"
+        >
+          +
+        </BaseButton>
       </div>
     </div>
   </div>
@@ -18,15 +37,33 @@
 
 <script setup>
 import { useStore } from 'vuex'
-import { ref, reactive } from 'vue'
+import { reactive } from 'vue'
 
 const props = defineProps({
-  id: Number,
-  image: String,
-  name: String,
-  price: String,
-  quantity: Number,
-  stock: Number
+  id: {
+    type: Number,
+    required: true
+  },
+  image: {
+    type: String,
+    default: ''
+  },
+  name: {
+    type: String,
+    required: true
+  },
+  price: {
+    type: String,
+    required: true
+  },
+  quantity: {
+    type: Number,
+    required: true
+  },
+  stock: {
+    type: Number,
+    required: true
+  }
 })
 
 const $store = useStore()
@@ -36,6 +73,4 @@ const cartItem = reactive({
 
 const decreaseQty = () => $store.dispatch('cart/decreaseItemQty', cartItem)
 const increaseQty = () => $store.dispatch('cart/increaseItemQty', cartItem)
-const selectedItem = ref(false)
-const itemQty = ref(cartItem.quantity)
 </script>

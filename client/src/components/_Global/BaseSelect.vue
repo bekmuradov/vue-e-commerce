@@ -6,21 +6,21 @@
     {{ label }}
   </label>
   <select
-    class="field"
     v-bind="{
       ...$attrs,
       onChange: ($event) => { $emit('update:modelValue', $event.target.value) }
     }"
-    :value="modelValue"
     :id="uuid"
+    class="field"
+    :value="modelValue"
     :aria-describedby="error ? `${uuid}-error` : null"
     :aria-invalid="error ? true : false"
     :class="{ error }"
   >
     <option
       v-for="option in options"
-      :value="option"
       :key="option"
+      :value="option"
       :selected="option === modelValue"
     >
       {{ option }}
@@ -34,36 +34,30 @@
   </BaseErrorMessage>
 </template>
 
-<script>
+<script setup>
 import UniqueID from '@/features/UniqueID'
-
-export default {
-  name: 'BaseSelect',
-  props: {
-    options: {
-      type: Array,
-      required: true
-    },
-    label: {
-      type: String,
-      required: false,
-      default: ''
-    },
-    error: {
-      type: String,
-      required: false,
-      default: ''
-    },
-    modelValue: {
-      type: [String, Number]
-    }
+defineProps({
+  options: {
+    type: Array,
+    required: true
   },
-  setup (props) {
-    const uuid = UniqueID().getID()
-
-    return {
-      uuid
-    }
+  label: {
+    type: String,
+    required: false,
+    default: ''
+  },
+  error: {
+    type: String,
+    required: false,
+    default: ''
+  },
+  modelValue: {
+    type: [String, Number],
+    default: ''
   }
-}
+})
+
+defineEmits([ 'update:modelValue' ])
+
+const uuid = UniqueID().getID()
 </script>

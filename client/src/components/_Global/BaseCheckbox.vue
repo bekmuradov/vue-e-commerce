@@ -1,14 +1,14 @@
 <template>
   <input
     v-bind="{ ...$attrs, onChange: ($event) => { $emit('update:modelValue', $event.target.checked) } }"
-    :checked="modelValue"
     :id="uuid"
+    :checked="modelValue"
     type="checkbox"
     class="field"
-  />
+  >
   <label
-    :for="uuid"
     v-if="label"
+    :for="uuid"
   >
     {{ label }}
   </label>
@@ -20,29 +20,23 @@
   </base-error-message>
 </template>
 
-<script>
+<script setup>
 import UniqueID from '@/features/UniqueID'
-
-export default {
-  props: {
-    label: {
-      type: String,
-      default: ''
-    },
-    modelValue: {
-      type: Boolean
-    },
-    error: {
-      type: String,
-      default: ''
-    }
+defineProps({
+  label: {
+    type: String,
+    default: ''
   },
-  setup (props) {
-    const uuid = UniqueID().getID()
-
-    return {
-      uuid
-    }
+  modelValue: {
+    type: Boolean
+  },
+  error: {
+    type: String,
+    default: ''
   }
-}
+})
+
+defineEmits([ 'update:modelValue' ])
+
+const uuid = UniqueID().getID()
 </script>

@@ -5,12 +5,17 @@
         404. Not found
       </div>
 
-      <div class="text-h2" style="opacity:.4">
+      <div
+        class="text-h2"
+        style="opacity:.4"
+      >
         Oops. Nothing here...
         The requested resource is not available.
       </div>
 
-      <router-link :to="{ name: 'Products'}">Go Home</router-link>
+      <router-link :to="{ name: 'Products'}">
+        Go Home
+      </router-link>
     </div>
   </div>
 </template>

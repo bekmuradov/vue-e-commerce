@@ -8,7 +8,7 @@
     lazy-rules
     :rules="[val => !!val || 'Password is required']"
   >
-    <template v-slot:append>
+    <template #append>
       <q-icon
         :name="isPwd ? 'visibility_off' : 'visibility'"
         class="cursor-pointer"
@@ -18,12 +18,13 @@
   </BaseInput>
 </template>
 
-<script>
+<script setup>
 import { ref } from 'vue'
 
 defineProps({
   color: {
-    type: String
+    type: String,
+    required: true
   },
   bgColor: {
     type: String,

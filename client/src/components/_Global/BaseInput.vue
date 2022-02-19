@@ -6,12 +6,12 @@
     {{ label }}
   </label>
   <input
-    class="field"
     v-bind="{
       ...$attrs,
       onInput: ($event) => { $emit('update:modelValue', $event.target.value) }
     }"
     :id="uuid"
+    class="field"
     :value="modelValue"
     :placeholder="label"
     :aria-describedby="error ? `${uuid}-error` : null"
@@ -26,30 +26,24 @@
   </base-error-message>
 </template>
 
-<script>
+<script setup>
 import UniqueID from '@/features/UniqueID'
-
-export default {
-  props: {
-    label: {
-      type: String,
-      default: ''
-    },
-    error: {
-      type: String,
-      default: ''
-    },
-    modelValue: {
-      type: [String, Number],
-      default: ''
-    }
+defineProps({
+  label: {
+    type: String,
+    default: ''
   },
-  setup (props) {
-    const uuid = UniqueID().getID()
-
-    return {
-      uuid
-    }
+  error: {
+    type: String,
+    default: ''
+  },
+  modelValue: {
+    type: [String, Number],
+    default: ''
   }
-}
+})
+
+defineEmits([ 'update:modelValue' ])
+
+const uuid = UniqueID().getID()
 </script>

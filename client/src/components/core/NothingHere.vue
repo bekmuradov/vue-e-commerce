@@ -6,21 +6,24 @@
     <div class="text-size-16 text-gray">
       {{ $filters.trim(subtitle) }}
     </div>
-    <router-link to="/" class="text-positive">Go Shopping Now</router-link>
+    <router-link
+      to="/"
+      class="text-positive"
+    >
+      Go Shopping Now
+    </router-link>
   </div>
 </template>
 
-<script>
-export default {
-  props: {
-    label: {
-      type: String,
-      default: 'Add some items to the cart!'
-    },
-    subtitle: {
-      type: String,
-      default: 'Browse our awesome deals now!'
-    }
+<script setup>
+defineProps({
+  label: {
+    type: String,
+    default: 'Add some items to the cart!'
+  },
+  subtitle: {
+    type: String,
+    default: 'Browse our awesome deals now!'
   }
-}
+})
 </script>
