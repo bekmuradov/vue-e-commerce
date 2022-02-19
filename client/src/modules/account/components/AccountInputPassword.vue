@@ -21,24 +21,19 @@
 <script>
 import { ref } from 'vue'
 
-export default {
-  props: {
-    color: {
-      type: String
-    },
-    bgColor: {
-      type: String,
-      default: 'backdrop'
-    },
-    textColor: {
-      type: String,
-      default: 'primary'
-    }
+defineProps({
+  color: {
+    type: String
   },
-  setup () {
-    return {
-      isPwd: ref(true)
-    }
+  bgColor: {
+    type: String,
+    default: 'backdrop'
+  },
+  textColor: {
+    type: String,
+    default: 'primary'
   }
-}
+})
+
+const isPwd = ref(true)
 </script>

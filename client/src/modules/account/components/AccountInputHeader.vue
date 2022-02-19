@@ -10,11 +10,9 @@
   </div>
 </template>
 
-<script>
-export default {
-  props: {
-    label: String,
-    subLabel: String
-  }
-}
+<script setup>
+defineProps({
+  label: String,
+  subLabel: String
+})
 </script>

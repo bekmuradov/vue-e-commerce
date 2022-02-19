@@ -16,36 +16,26 @@
   </div>
 </template>
 
-<script>
+<script setup>
 import { useStore } from 'vuex'
 import { ref, reactive } from 'vue'
 
-export default {
-  name: 'CartItem',
-  props: {
-    id: Number,
-    image: String,
-    name: String,
-    price: String,
-    quantity: Number,
-    stock: Number
-  },
-  setup (props) {
-    const $store = useStore()
-    const cartItem = reactive({
-      ...props
-    })
+const props = defineProps({
+  id: Number,
+  image: String,
+  name: String,
+  price: String,
+  quantity: Number,
+  stock: Number
+})
 
-    const decreaseQty = () => $store.dispatch('cart/decreaseItemQty', cartItem)
-    const increaseQty = () => $store.dispatch('cart/increaseItemQty', cartItem)
+const $store = useStore()
+const cartItem = reactive({
+  ...props
+})
 
-    return {
-      cartItem,
-      decreaseQty,
-      increaseQty,
-      selectedItem: ref(false),
-      itemQty: ref(cartItem.quantity)
-    }
-  }
-}
+const decreaseQty = () => $store.dispatch('cart/decreaseItemQty', cartItem)
+const increaseQty = () => $store.dispatch('cart/increaseItemQty', cartItem)
+const selectedItem = ref(false)
+const itemQty = ref(cartItem.quantity)
 </script>
